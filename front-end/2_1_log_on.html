@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" type="text/css" href="mystyle3.css">
+
+
+
+
+<ul>
+  <li><a class="active" href="./1_1_navigation.html">Home</a></li>
+  <li><a href="./1_2_connect.html">Contact Us</a></li>
+  <li><a href="./2_1_log_on.html">Log On</a></li>
+  <li><a href="./2_2_log_in.html">Log In</a></li>
+  
+</ul>
+<meta charset="utf-8">
+<title>log on</title>
+<meta http-equiv="Access-Control-Allow-Origin" content="*" />
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="pragma" content="no-cache">
+    <meta http-equiv="cache-control" content="no-cache">
+    <meta http-equiv="expires" content="0">
+    <meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
+    <meta http-equiv="description" content="ajax方式">
+    <script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+
+<script type="text/javascript">
+        function logon() {
+			
+                    $.ajax({
+                    //几个参数需要注意一下
+                        type: "POST",//方法类型
+                        
+                        url: "http://127.0.0.1:5000/register" ,//url
+						data: $('#form1').serialize(),
+						                success: function (result) {
+									    console.log(result);//打印服务端返回的数据(调试用)
+										
+										alert("SUCCESS");
+										parent.document.location.href = "./2_2_log_in.html";
+										
+										;
+						                },
+						                error : function() {
+						                    alert("异常！");
+						                }
+                        
+                        
+                    })
+                }
+    </script>
+</head>
+<body>
+	<h2>Please Log On(New User)</h2>
+	<form id="form1" onsubmit="return false" action="##" method="post">
+	        <p>Username：<input name="username" type="text" id="txtUserName" tabindex="1" size="15" value=""/></p>
+	        <p>Password：<input name="password" type="password" id="TextBox2" tabindex="2" size="16" value=""/></p>
+	        <p><input type="button" value="Log On" style="background: #3d83fa;color: #fefefe;font-family:Microsoft YaHei" onclick="logon()">
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			<input type="reset" value="Reset" style="background: #3d83fa;color: #fefefe;font-family:Microsoft YaHei"></p>
+	    </form>
+
+
+
+</body>
+</html>

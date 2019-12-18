@@ -1,0 +1,37 @@
+<script src="https://api.map.baidu.com/api?v=2.0&ak=1a3c89ddb9bcfaf5b9dc4b62e3f2a05b"></script>
+<link rel="stylesheet" type="text/css" href="map.css">
+<ul>
+  <li><a class="active" href="./1_1_navigation.html">Home</a></li>
+  <li><a href="./1_2_contact.html">Contact Us</a></li>
+  <li><a href="./2_1_log_on.html">Log On</a></li>
+  <li><a href="./2_2_log_in.html">Log In</a></li>
+  
+</ul>
+
+
+
+<div class="container">
+  <div style="text-align:center">
+    <h2>Connect Us</h2>
+    <p>Please fill in your informaton</p>
+  </div>
+  <div class="row">
+    <div class="column">
+      <div id="allmap" style="width:100%;height:500px"></div>
+	  <script type="text/javascript" src="map.js"></script>
+    </div>
+    <div class="column">
+      <form action="/action_page.php">
+        <label for="name">Name</label>
+        <input type="text" id="fname" name="name" placeholder="Your name..">
+        <label for="phone">Phone</label>
+        <input type="text" id="phone" name="phone" placeholder="Phone number..">
+        
+        <label for="subject">Message</label>
+        <textarea id="subject" name="subject" placeholder="Your opinion.." style="height:170px"></textarea>
+        <input type="button" value="Submit" onclick="repage()">
+		
+      </form>
+    </div>
+  </div>
+</div>

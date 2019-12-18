@@ -1,0 +1,28 @@
+body {
+	background-image:url('./src/5.jpg');
+	background-size:cover;
+	
+	}
+
+	
+h2 {
+	position:relative;
+	top:350px;
+	left:50px;
+	
+	text-align:center;
+	text-transform:uppercase;
+	opacity:1;
+	font-family:"Microsoft YaHei"	}
+	
+p {
+	position:relative;
+	top:350px;
+	left:50px;
+	
+	text-align:center;
+	text-transform:uppercase;
+	opacity:1;
+	font-family:"Microsoft YaHei";
+	
+	}

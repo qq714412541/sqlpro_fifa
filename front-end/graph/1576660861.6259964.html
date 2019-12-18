@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Awesome-pyecharts</title>
+            <script type="text/javascript" src="https://assets.pyecharts.org/assets/echarts.min.js"></script>
+
+</head>
+<body>
+    <div id="d3a0e723b8a746a8ae9b1116caca93d2" class="chart-container" style="width:900px; height:500px;"></div>
+    <script>
+        var chart_d3a0e723b8a746a8ae9b1116caca93d2 = echarts.init(
+            document.getElementById('d3a0e723b8a746a8ae9b1116caca93d2'), 'white', {renderer: 'canvas'});
+        var option_d3a0e723b8a746a8ae9b1116caca93d2 = {
+    "animation": true,
+    "animationThreshold": 2000,
+    "animationDuration": 1000,
+    "animationEasing": "cubicOut",
+    "animationDelay": 0,
+    "animationDurationUpdate": 300,
+    "animationEasingUpdate": "cubicOut",
+    "animationDelayUpdate": 0,
+    "color": [
+        "#c23531",
+        "#2f4554",
+        "#61a0a8",
+        "#d48265",
+        "#749f83",
+        "#ca8622",
+        "#bda29a",
+        "#6e7074",
+        "#546570",
+        "#c4ccd3",
+        "#f05b72",
+        "#ef5b9c",
+        "#f47920",
+        "#905a3d",
+        "#fab27b",
+        "#2a5caa",
+        "#444693",
+        "#726930",
+        "#b2d235",
+        "#6d8346",
+        "#ac6767",
+        "#1d953f",
+        "#6950a1",
+        "#918597"
+    ],
+    "series": [
+        {
+            "type": "radar",
+            "name": "Milan",
+            "data": [
+                [
+                    48,
+                    70,
+                    52,
+                    36,
+                    66,
+                    69,
+                    57,
+                    58,
+                    49
+                ]
+            ],
+            "label": {
+                "show": false,
+                "position": "top",
+                "margin": 8
+            },
+            "itemStyle": {
+                "normal": {
+                    "color": "#f9713c"
+                }
+            },
+            "lineStyle": {
+                "width": 1,
+                "opacity": 1,
+                "curveness": 0,
+                "type": "solid"
+            },
+            "areaStyle": {
+                "opacity": 0
+            },
+            "rippleEffect": {
+                "show": true,
+                "brushType": "stroke",
+                "scale": 2.5,
+                "period": 4
+            }
+        }
+    ],
+    "legend": [
+        {
+            "data": [
+                "Milan"
+            ],
+            "selected": {
+                "Milan": true
+            },
+            "show": true
+        }
+    ],
+    "tooltip": {
+        "show": true,
+        "trigger": "item",
+        "triggerOn": "mousemove|click",
+        "axisPointer": {
+            "type": "line"
+        },
+        "textStyle": {
+            "fontSize": 14
+        },
+        "borderWidth": 0
+    },
+    "radar": {
+        "indicator": [
+            {
+                "name": "buildUpPlaySpeed",
+                "max": 100
+            },
+            {
+                "name": "buildUpPlayDribbling",
+                "max": 100
+            },
+            {
+                "name": "buildUpPlayPassing",
+                "max": 100
+            },
+            {
+                "name": "chanceCreationCrossing",
+                "max": 100
+            },
+            {
+                "name": "chanceCreationPassing",
+                "max": 100
+            },
+            {
+                "name": "chanceCreationShooting",
+                "max": 100
+            },
+            {
+                "name": "defenceAggression",
+                "max": 100
+            },
+            {
+                "name": "defencePressure",
+                "max": 100
+            },
+            {
+                "name": "defenceTeamWidth",
+                "max": 100
+            }
+        ],
+        "shape": "circle",
+        "name": {
+            "textStyle": {}
+        },
+        "splitLine": {
+            "show": true,
+            "lineStyle": {
+                "width": 1,
+                "opacity": 1,
+                "curveness": 0,
+                "type": "solid"
+            }
+        },
+        "splitArea": {
+            "show": true,
+            "areaStyle": {
+                "opacity": 0
+            }
+        },
+        "axisLine": {
+            "show": true,
+            "onZero": true,
+            "onZeroAxisIndex": 0
+        }
+    },
+    "title": [
+        {
+            "text": "Radar-Player"
+        }
+    ]
+};
+        chart_d3a0e723b8a746a8ae9b1116caca93d2.setOption(option_d3a0e723b8a746a8ae9b1116caca93d2);
+    </script>
+</body>
+</html>
