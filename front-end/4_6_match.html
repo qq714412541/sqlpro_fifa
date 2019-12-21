@@ -1,4 +1,4 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
 	<ul>
@@ -26,6 +26,8 @@
     <script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
     <script type="text/javascript">
         function check() {
+			var oUname = document.getElementById("fname")
+			if(isnull(oUname.value)){
             $.ajax({
             //几个参数需要注意一下
                 type: "POST",//方法类型
@@ -36,18 +38,39 @@
                 	var json = eval(result)
                 	var path = json['path'];
                     console.log(result['code']);//打印服务端返回的数据(调试用)
+					if (result['code'] == 10001){
+						alert("Result dosen't exist, try other names!")
+					}else if(result['code']==1){
+						alert("Success!, let's see the table.");
+						//parent.document.location.href = "./graph/" + path;
+						window.open("./table/" + path,'_blank');
+					}
                     
                     												
-                    alert("Success!, let's see the table.");
-                	//parent.document.location.href = "./graph/" + path;
-                	window.open("./match/" + path,'_blank');
+                    
                 	
                 },
                 error : function() {
                     alert("error！");
                 }
-            });
+            });}
+			else{alert("Input type is not right!")}
         }
+		
+	function isnull(val) {
+	 
+	        var str = val.toString().replace(/(^\s*)|(\s*$)/g, '');//去除空格;
+	 
+	        if (str == '' || str == undefined || str == null) {
+	            //return true;
+	            console.log('空')
+				return false
+	        } else {
+	            //return false;
+	            console.log('fei空');
+				return true
+	        }
+	    }
 		
 		
     </script>
@@ -57,8 +80,8 @@
 <body>
 <div id="form-div">
     <form id="form1" onsubmit="return false" action="##" method="post">
-        <p>Team name<input name="name"  type="text" placeholder="Team name" id="txtUserName" tabindex="1" size="15" value=""/></p>
-
+        
+		<p>Team Name<input name="name" type="text" placeholder="exact name of team" id="fname" tabindex="1" size="15" value=""/></p>
         
         <p><input type="button" value="Check" onclick="check()" >
 		&nbsp;<input type="reset" value="Reset"></p>

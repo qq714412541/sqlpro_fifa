@@ -10,7 +10,7 @@
 <ul>
   <li><a class="active" href="./1_1_navigation.html">Home</a></li>
   <li><a href="./1_2_contact.html">Contact Us</a></li>
-  <li><a href="./2_1_log_on.html">Log On</a></li>
+  <li><a href="./2_1_log_on.html">Register</a></li>
   <li><a href="./2_2_log_in.html">Log In</a></li>
   
 </ul>
@@ -28,23 +28,56 @@
 
 <script type="text/javascript">
         function login() {
+			var oUname = document.getElementById("txtUserName")
+			console.log(oUname.value)
+			
+			 var oUpass = document.getElementById("TextBox2")
+			
+			 if (isnull(oUname.value) && isnull(oUpass.value)  ){
                     $.ajax({
                     //几个参数需要注意一下
                         type: "POST",//方法类型
                         dataType: "json",//预期服务器返回的数据类型
                         url: "http://127.0.0.1:5000/login" ,//url
                         data: $('#form1').serialize(),
-                        success: function (status) {
-                            console.log(status);//打印服务端返回的数据(调试用)
-							parent.document.location.href = "./4_1_league.html";
+                        success: function (result) {
+							
+                            console.log(result);//打印服务端返回的数据(调试用)
+							if (result["code"] ==0){
+								alert("Username and password are not matched!")
+							}else if(result["code"] == 10){
+								alert("Success! Let's do search!")
+								parent.document.location.href = "./4_1_league.html";
+							}else{
+								alert("Something is wrong!")
+							}
+							
                             
                             
                         },
                         error : function() {
-                            alert("异常！");
+                            alert("Error！");
                         }
-                    });
+                    });   }
+				else {
+					alert("Input type is not right!")
+				}
                 }
+				
+		function isnull(val) {
+		 
+		        var str = val.toString().replace(/(^\s*)|(\s*$)/g, '');//去除空格;
+		 
+		        if (str == '' || str == undefined || str == null) {
+		            //return true;
+		            console.log('空')
+					return false
+		        } else {
+		            //return false;
+		            console.log('fei空');
+					return true
+		        }
+		    }
     </script>
 </head>
 <body>

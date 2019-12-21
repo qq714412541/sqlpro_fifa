@@ -9,12 +9,12 @@
 <ul>
   <li><a class="active" href="./1_1_navigation.html">Home</a></li>
   <li><a href="./1_2_connect.html">Contact Us</a></li>
-  <li><a href="./2_1_log_on.html">Log On</a></li>
+  <li><a href="./2_1_log_on.html">Register</a></li>
   <li><a href="./2_2_log_in.html">Log In</a></li>
   
 </ul>
 <meta charset="utf-8">
-<title>log on</title>
+<title>Register</title>
 <meta http-equiv="Access-Control-Allow-Origin" content="*" />
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta http-equiv="pragma" content="no-cache">
@@ -26,6 +26,11 @@
 
 <script type="text/javascript">
         function logon() {
+			var oUname = document.getElementById("txtUserName")
+			console.log(oUname.value)
+			
+			var oUpass = document.getElementById("TextBox2")
+			if (isnull(oUname.value) && isnull(oUpass.value)  ){
 			
                     $.ajax({
                     //几个参数需要注意一下
@@ -36,8 +41,16 @@
 						                success: function (result) {
 									    console.log(result);//打印服务端返回的数据(调试用)
 										
-										alert("SUCCESS");
-										parent.document.location.href = "./2_2_log_in.html";
+										//alert("SUCCESS");
+										if (result["code"] ==10002	){
+											alert("Success! let's log in.")
+											parent.document.location.href = "./2_2_log_in.html";
+										}else if(result["code"] ==10003){
+											alert("Username already exists!")
+										}else{
+											alert("Something is wrong!")
+										}
+										//
 										
 										;
 						                },
@@ -46,16 +59,33 @@
 						                }
                         
                         
-                    })
+                    })  }
+					else {
+					alert("Input type is not right!")
+				}
                 }
+		function isnull(val) {
+		 
+		        var str = val.toString().replace(/(^\s*)|(\s*$)/g, '');//去除空格;
+		 
+		        if (str == '' || str == undefined || str == null) {
+		            //return true;
+		            console.log('空')
+					return false
+		        } else {
+		            //return false;
+		            console.log('fei空');
+					return true
+		        }
+		    }
     </script>
 </head>
 <body>
-	<h2>Please Log On(New User)</h2>
+	<h2>Please Register(New User)</h2>
 	<form id="form1" onsubmit="return false" action="##" method="post">
 	        <p>Username：<input name="username" type="text" id="txtUserName" tabindex="1" size="15" value=""/></p>
 	        <p>Password：<input name="password" type="password" id="TextBox2" tabindex="2" size="16" value=""/></p>
-	        <p><input type="button" value="Log On" style="background: #3d83fa;color: #fefefe;font-family:Microsoft YaHei" onclick="logon()">
+	        <p><input type="button" value="Register" style="background: #3d83fa;color: #fefefe;font-family:Microsoft YaHei" onclick="logon()">
 			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 			<input type="reset" value="Reset" style="background: #3d83fa;color: #fefefe;font-family:Microsoft YaHei"></p>
 	    </form>
